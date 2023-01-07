@@ -3,35 +3,36 @@
 Основной модуль: точка входа."""
 
 import data
+import files
 import functions
 
 
 def main():
-    print(f'\n{data.TITLE}')
+    print(f'\n{functions.draw_title(data.TITLE, upper=True, accent=True)}')
     while True:
         functions.show_menu()
         choice = functions.get_menu_entry()
 
         if choice is data.MainMenu.ADD:
-            pass
+            files.create_dir()
 
         elif choice is data.MainMenu.COPY:
-            pass
+            files.copy_file_or_dir()
 
         elif choice is data.MainMenu.DEL:
-            pass
+            files.delete_file_or_dir()
 
         elif choice is data.MainMenu.DIR:
-            pass
+            files.list_dir()
 
         elif choice is data.MainMenu.DIR_D:
-            pass
+            files.list_dir(only_dirs=True)
 
         elif choice is data.MainMenu.DIR_F:
-            pass
+            files.list_dir(only_files=True)
 
         elif choice is data.MainMenu.CD:
-            pass
+            files.change_cwd()
 
         elif choice is data.MainMenu.OS:
             pass

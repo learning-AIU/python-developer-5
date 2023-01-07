@@ -3,14 +3,18 @@
 Дополнительный модуль: глобальные переменные."""
 
 from enum import Enum
-from shutil import get_terminal_size as gts
+from pathlib import Path
+from sys import path
 
 
-TITLE = "КОНСОЛЬНЫЙ ФАЙЛОВЫЙ МЕНЕДЖЕР"
-half_width, mod = divmod(gts()[0] - 1 - len(TITLE) - 2, 2)
-TITLE = '='*half_width + f' {TITLE} ' + '='*(half_width+mod)
+PROJECT_DIR = Path(path[0])
+CWD = PROJECT_DIR
+
+
+TITLE = "Консольный файловый менеджер"
 
 PROMPT = ' > '
+ERROR = ' _ '
 
 class MainMenu(Enum):
     ADD = 'создать каталог'
@@ -27,11 +31,16 @@ class MainMenu(Enum):
     QUIT = 'выйти'
 
 MESSAGES = {
-
+    'MAIN_MENU_TITLE': 'главное меню',
+    'ASK_DIR_NAME': f'{PROMPT}введите имя каталога{PROMPT}',
+    'ASK_FILE_OR_DIR_NAME': f'{PROMPT}введите имя файла или каталога{PROMPT}',
+    'ASK_TARGET_NAME': f'{PROMPT}введите новое имя{PROMPT}',
+    'ASK_PATH': f'{PROMPT}введите путь{PROMPT}',
 }
 ERROR_MESSAGES = {
-    'DIGITS': ' _ требуются символы цифр _ ',
-    'RANGE': ' _ требуется число из диапазона _ ',
+    'DIGITS': f'{ERROR}требуются символы цифр{ERROR}',
+    'RANGE': f'{ERROR}требуется число из диапазона{ERROR}',
+    'DIR_NOT_FOUND': f'{ERROR}каталог не найден{ERROR}',
 }
 
 

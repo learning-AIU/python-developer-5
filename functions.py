@@ -2,11 +2,23 @@
 
 Дополнительный модуль: вспомогательные функции."""
 
+from shutil import get_terminal_size as gts
+
 import data
 
 
+width = gts()[0] - 1
+
+
+def draw_title(text: str, *, upper: bool = False, accent: bool = False) -> str:
+    text = text.upper() if upper else text.title()
+    half_width, mod = divmod(width-len(text)-2, 2)
+    filler = '=' if accent else '+'
+    return f'{filler*half_width} {text} {filler*(half_width+mod)}'
+
+
 def show_menu():
-    print('\n____ Главное Меню ____')
+    print('\n', draw_title(data.MESSAGES['MAIN_MENU_TITLE']), sep='')
     for i, entry in enumerate(data.MainMenu, 1):
         print(f' {i}. {entry.value}')
 
