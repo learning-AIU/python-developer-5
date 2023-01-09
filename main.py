@@ -2,9 +2,11 @@
 
 Основной модуль: точка входа."""
 
+import bank
 import data
 import files
 import functions
+import quiz
 
 
 def main():
@@ -41,10 +43,10 @@ def main():
             functions.show_credits()
 
         elif choice is data.MainMenu.BANK:
-            pass
+            bank.start()
 
         elif choice is data.MainMenu.QUIZ:
-            pass
+            quiz.play()
 
         elif choice is data.MainMenu.QUIT:
             break
