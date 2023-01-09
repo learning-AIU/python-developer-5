@@ -35,10 +35,10 @@ def main():
             files.change_cwd()
 
         elif choice is data.MainMenu.OS:
-            pass
+            functions.os_platform()
 
         elif choice is data.MainMenu.AUTHOR:
-            pass
+            functions.show_credits()
 
         elif choice is data.MainMenu.BANK:
             pass

@@ -2,7 +2,10 @@
 
 Дополнительный модуль: вспомогательные функции."""
 
+from os import name as os_type
 from shutil import get_terminal_size as gts
+from string import punctuation
+from sys import modules, platform
 
 import data
 
@@ -36,7 +39,19 @@ def get_menu_entry() -> data.MainMenu:
             print(data.ERROR_MESSAGES['DIGITS'])
 
 
+def os_platform() -> None:
+    print(f'\n{os_type.upper()} — {platform}')
+
+
+def show_credits() -> None:
+    app_name = modules['__main__'].__doc__.split('\n')[0].strip(punctuation)
+    print(f'\n{app_name}, {data.CUR_YEAR}.\n'
+          f'Разработка: {data.AUTHOR}.')
+
+
 # тесты
 if __name__ == '__main__':
-    show_menu()
-    print(get_menu_entry())
+    # show_menu()
+    # print(get_menu_entry())
+
+    show_credits()

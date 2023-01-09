@@ -33,6 +33,7 @@ def copy_file_or_dir() -> None:
 
 
 def list_dir(*, only_files: bool = False, only_dirs: bool = False) -> None:
+    print()
     for item in data.CWD.iterdir():
         if not only_files ^ only_dirs:
             print(item.name)

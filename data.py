@@ -3,6 +3,7 @@
 Дополнительный модуль: глобальные переменные."""
 
 from enum import Enum
+from datetime import datetime as dt
 from pathlib import Path
 from sys import path
 
@@ -12,6 +13,8 @@ CWD = PROJECT_DIR
 
 
 TITLE = "Консольный файловый менеджер"
+AUTHOR = "Геннадий Шаповаленко (GennDALF)"
+CUR_YEAR = dt.now().year
 
 PROMPT = ' > '
 ERROR = ' _ '
